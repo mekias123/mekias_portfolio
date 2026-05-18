@@ -9,7 +9,7 @@ export default function Blog() {
   const [error, setError]     = useState(null);
 
   useEffect(() => {
-    fetch('/api/posts')
+    fetch(`${import.meta.env.VITE_API_URL || ''}/api/posts`)
       .then(r => {
         if (!r.ok) throw new Error('Failed to fetch posts');
         return r.json();

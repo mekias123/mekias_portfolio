@@ -25,7 +25,7 @@ export default function BlogPost() {
   useEffect(() => {
     setLoading(true);
     setError(null);
-    fetch(`/api/posts/${slug}`)
+    fetch(`${import.meta.env.VITE_API_URL || ''}/api/posts/${slug}`)
       .then(r => {
         if (!r.ok) throw new Error(r.status === 404 ? 'Post not found.' : 'Failed to fetch post');
         return r.json();
